@@ -1,63 +1,59 @@
-# Фабрика 2D-роликов «Под лампой»
+# 2D Shorts Factory — "Под лампой" (Under the Lamp)
 
-Студия из одиннадцати ролей-агентов, которая делает короткие анимированные ролики для TikTok / Shorts / Reels: от идеи до файла с замерами.
-Один ролик = один объект на бархатном столе под лампой, один удивительный факт с источником, одно действие света, 30–35 секунд, петля в первый кадр.
+A studio of twelve AI agent roles that turns an idea into a finished vertical animated short with measured quality gates, built for TikTok / Shorts / Reels.
+Every video is one object on a velvet table under a lamp, one sourced surprising number, one visible "verb" of light, 30–35 seconds, looping back into frame 0.
+Language of the channel: Russian.
 
-**[English summary below](#english)**
+[Русская версия ниже](#русская-версия)
 
-## Что здесь лежит
+## What is in this repository
 
-| папка | что это |
+| folder | contents |
 |---|---|
-| `videos/` | два готовых ролика: «Кубок Ликурга» (стеклу 16 веков, и оно меняет цвет) и «Ваше тело светится» (тело излучает свет в тысячу раз слабее порога глаза); кредиты в `videos/CREDITS.md` |
-| `docs/FACTORY-RU.md` | исследование: что удерживает внимание в первых 2 секундах, правила хука, ре-хуков, развязки, петли; как собрать фабрику по ролям |
-| `docs/STUDIO-RU.md` | как устроена студия: роли, гейты, что каждая роль отдаёт следующей |
-| `studio/` | сами роли (системные промпты агентов): шоураннер, исследователь, сценарист, критик, редактор русского текста, режиссёр, арт-директор, звукорежиссёр, аниматор, монтажёр-QA, публикатор, аналитик |
-| `workflows/studio-preprod.js` | препродакшен как детерминированный пайплайн: бриф → факты → три конкурирующих сценария → критики → судья → цикл правок → редактор |
-| `niche/trend-week/` | профиль ниши (обещание, зритель, стиль, голос, темы) и полные документы двух роликов: бриф, сценарий с таблицей хуков, раскадровка, стиль, отчёт с замерами, подпись |
-| `brand/` | аватар канала |
+| `videos/` | two finished shorts: *The Lycurgus Cup* (a 1,600-year-old glass that changes colour) and *Your body glows* (the body emits visible light a thousand times below the eye's threshold); licences in `videos/CREDITS.md` |
+| `docs/FACTORY-RU.md` | research: what holds attention in the first 2 seconds, rules for the hook, re-hooks, payoff and loop, and how to organise a factory by roles (Russian) |
+| `docs/STUDIO-RU.md` | how the studio works: roles, gates, what each role hands to the next (Russian) |
+| `studio/` | the role prompts: showrunner, researcher, screenwriter, script critic, Russian copy editor, director, art director, sound designer, animator, QA editor, publisher, analyst |
+| `workflows/studio-preprod.js` | pre-production as a deterministic multi-agent pipeline: brief → facts → three competing scripts → adversarial critics → judge → fix loop → copy editor |
+| `niche/trend-week/` | the niche profile (promise, viewer, look, voice, topics) and the full paper trail of both videos: brief, script with the hook table, storyboard, style guide, QA report with measurements, caption |
+| `brand/` | the channel avatar |
 
-## Как делается ролик
+## How a video is made
 
-1. **Бриф.** Шоураннер превращает идею в одну страницу: одна мысль, зритель, обещание, формат, длина.
-2. **Факты.** Исследователь собирает каждое число с источником и с тем, *что именно* оно измеряет; ловушки единиц и безопасности.
-3. **Три сценария.** Три сценариста пишут от разных формул хука; у каждого таблица битов: строка голоса, что на экране, какое действие зритель должен увидеть.
-4. **Критики.** Критик читает как листающий зритель: тест двух секунд, тест пересказа, плотность фактов, петля, тест обратного перевода (русская фраза не должна звучать как перевод с английского).
-5. **Судья и цикл правок.** Шоураннер сводит лучшее, критик гоняет до PASS, исследователь сверяет каждое число.
-6. **Редактор.** Строки голоса переписываются живым разговорным русским: одна мысль на фразу, глаголы, речевые связки.
-7. **Режиссёр, арт-директор, звук.** Раскадровка с привязкой каждого события к слову голоса; стиль с целями яркости; озвучка ElevenLabs с тегами подачи (шёпот, воодушевление), тайминги слов, подтянутые к распознаванию Whisper; живая музыка и записанные звуки с лицензиями.
-8. **Аниматор.** Сцены в Remotion, всё висит на словах, не на секундах; линт раскладки, контрольные листы.
-9. **Монтажёр-QA.** Один рендер; затем ×1.25, −14 LUFS, яркость ≥ 100, синхрон субтитров по Whisper, петля (последний кадр = кадр 0), полоски движения; файл не выдаётся, если не прошёл гейт.
-10. **Публикатор и аналитик.** Подпись с ключевыми словами и кредитами, слот, лог постов; через 48 часов пять чисел с площадки и одна переменная на изменение.
+1. **Brief.** The showrunner turns an idea into one page: one idea, the viewer, the promise, format, length.
+2. **Facts.** The researcher collects every number with a source and with *what exactly* it measures, plus unit and safety traps.
+3. **Three scripts.** Three screenwriters start from different hook formulas; each delivers a beat table: the voice line, what is on screen, the action the viewer must see.
+4. **Critics.** The script critic reads as a scrolling viewer: the 2-second test, the retell test, fact density, loop integrity, and a back-translation test (a Russian line must not sound like a translation from English).
+5. **Judge and fix loop.** The showrunner merges the best, the critic iterates to PASS, the researcher re-verifies every number.
+6. **Copy editor.** Voice lines are rewritten as living spoken Russian: one thought per sentence, verbs over nouns, spoken connectors.
+7. **Director, art director, sound.** A storyboard where every event is anchored to a word of the voice; a style guide with luminance targets; ElevenLabs voice with delivery tags (whisper, excitement), word timings snapped to Whisper recognition; a licensed music track and recorded sound effects.
+8. **Animator.** Remotion scenes that hang on words, never on seconds; layout lint; contact sheets.
+9. **QA editor.** One render; then ×1.25 speed, −14 LUFS, luminance ≥ 100, subtitle sync checked with Whisper, loop check (last frame = frame 0), motion strips. No file leaves without passing the gate.
+10. **Publisher and analyst.** Caption with search keywords and credits, posting slot and log; 48 hours later five numbers from the platform and one variable to change next.
 
-## Правила, которые всплыли на практике
+## Rules that came out of practice
 
-- Хук укладывается в 2 секунды целиком; если голос не успевает, хук делится на две короткие фразы, и гейт меряет первую.
-- Видимое изменение каждые ≤ 2 секунды, камера никогда не стоит; реквизит въезжает за 0,3 с и уходит, когда кончается его слово.
-- Русский текст пишется по-русски сразу, как сказал бы другу; обратный перевод на английский не должен звучать лучше.
-- Числа на экране = числа в голосе; одно число на бит; у каждого числа источник.
-- Шёпот не ставится на хук: его хуже слышно поверх музыки.
+- The whole hook fits in 2 seconds; when the voice cannot, the hook becomes two short phrases and the gate measures the first.
+- A visible change every ≤ 2 seconds, the camera never static; props enter in 0.3 s and leave when their word ends.
+- Russian is written in Russian from the start, the way you would say it to a friend; if the word-for-word English back-translation sounds better, the line is a calque and gets rewritten.
+- Numbers on screen = numbers in the voice; one number per beat; every number has a source.
+- No whisper on the hook: it is the hardest line to hear over music.
 
-## Чего здесь нет
+## What is not here
 
-Движок (озвучка, микс, проверки, рендер) и шаблоны сцен лежат в отдельном приватном репозитории: они выросли из набора, сделанного не мной одним. Здесь только то, что сделано в этой студии: роли, правила, процесс, документы роликов и сами ролики.
+The rendering engine (voice, mix, checks, render) and the scene templates live in a separate private repository: they grew out of a kit that is not mine alone. This repository holds only what the studio produced: roles, rules, the pipeline, the videos' documents and the videos themselves.
 
-## Лицензия
+## Licence
 
-Тексты, роли и документы: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — смотреть, учиться, цитировать с указанием автора; не продавать. Ролики: показ в портфолио; голос ElevenLabs (бесплатный план, указание обязательно), музыка и звуки по лицензиям из `videos/CREDITS.md`.
+Texts, role prompts and documents: [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) — read, learn, quote with attribution; no commercial use. Videos: portfolio display only; the ElevenLabs voice (free plan, attribution required), music and sounds are licensed as listed in `videos/CREDITS.md`.
 
 ---
 
-## English
+## Русская версия
 
-A studio of eleven agent roles that turns an idea into a finished vertical animated short with measured gates: showrunner, researcher,
-screenwriter, script critic, Russian copy editor, director, art director, sound designer, animator, QA editor, publisher, analyst.
-Every short is one object on a velvet table under a lamp, one sourced surprising number, one visible verb of light, 30–35 s, looping into frame 0.
+Студия из двенадцати ролей-агентов делает короткие анимированные ролики для TikTok / Shorts / Reels: от идеи до файла с замерами.
+Один ролик = один объект на бархатном столе под лампой, один удивительный факт с источником, одно действие света, 30–35 секунд, петля в первый кадр.
 
-Pipeline: brief → sourced facts → three competing scripts → adversarial critics (2-second test, retell test, back-translation test) → judge →
-fix loop → copy editor → storyboard anchored on voice words → style with luma targets → ElevenLabs v4 voice with delivery tags and
-Whisper-snapped word timings → Remotion scenes → one render → finish gates (×1.25, −14 LUFS, luma ≥ 100, subtitle sync, loop) → captions and posting log → 48-hour analytics.
+Пайплайн: бриф → факты с источниками → три конкурирующих сценария → критики (тест двух секунд, тест пересказа, тест обратного перевода) → судья → цикл правок → редактор русского текста → раскадровка, привязанная к словам голоса → стиль с целями яркости → озвучка ElevenLabs с тегами подачи и таймингами слов по Whisper → сцены в Remotion → один рендер → гейты финиша (×1.25, −14 LUFS, яркость ≥ 100, синхрон субтитров, петля) → подпись и лог постов → аналитика через 48 часов.
 
-`videos/` holds two finished shorts, `docs/` the research and the studio description (Russian), `studio/` the role prompts,
-`workflows/` the deterministic pre-production script, `niche/` the niche profile and the full paper trail of both videos.
-The rendering engine and scene templates live in a separate private repository. Licence: CC BY-NC 4.0 for texts; videos for portfolio display only.
+В `videos/` два готовых ролика, в `docs/` исследование и описание студии, в `studio/` роли, в `workflows/` пайплайн препродакшена, в `niche/` профиль ниши и все документы обоих роликов. Движок и шаблоны сцен лежат в отдельном приватном репозитории. Лицензия CC BY-NC 4.0 на тексты; ролики только для показа в портфолио.
